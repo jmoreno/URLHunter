@@ -1,3 +1,5 @@
+> El fuente de URLHunter está en la rama GitHub, la rama Master está vacia
+
 # Creando URLHunter.
 
 Vamos a demostrar que no hace falta ser un figura para hacer algo muy util y aparente. Vaya por delante que, si somos capaces de hacer esto es porque existen páginas como las de [Railscasts][1].

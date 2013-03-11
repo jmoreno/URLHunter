@@ -1,6 +1,6 @@
 > El fuente de URLHunter está en la rama [GitHub](https://github.com/jmoreno/URLHunter/tree/GitHub), la rama Master está vacia
 
-# Creando URLHunter.
+# Creando [URLHunter](http://urlhunter-314159.herokuapp.com).
 
 Vamos a demostrar que no hace falta ser un figura para hacer algo muy util y aparente. Vaya por delante que, si somos capaces de hacer esto es porque existen páginas como las de [Railscasts][1].
 Lo primero que hacemos después de crear nuestro nuevo proyecto Rails es instalar las gemas necesarias para trabajar con Twitter Bootstrap, del que somos fans.

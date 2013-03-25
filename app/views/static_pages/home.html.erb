@@ -1,0 +1,15 @@
+<h1>Todos los links de @objectivec_es</h1>
+<%= will_paginate @tweetlinks %>
+    <% @tweetlinks.each do |tweetlink| %>
+        <%= tweetlink.oembed.html_safe %>
+    <% end %>
+<%= will_paginate @tweetlinks %>
+<script async="" src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+<script>
+    $(document).ready(function() {
+            $.ajax({
+                url: "<%= pullTweets_path %>",
+                dataType: "script"
+            });
+    });
+</script>

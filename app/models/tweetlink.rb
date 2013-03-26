@@ -1,21 +1,16 @@
 class Tweetlink < ActiveRecord::Base
-  attr_accessible :content, :screen_name, :tweet_id, :profile_image, :tweet_created_at, :oembed
+  attr_accessible :content, :screen_name, :tweet_id, :profile_image, :tweet_created_at, :oembed, :prey
+  belongs_to :prey
 
-  def self.first_time
-    Twitter.user_timeline("objectivec_es", :count => 3200, :exclude_replies => true).each do |tweet|
-      insert_tweet(tweet)
-    end
-  end
-
-  def self.pull_tweets
-    Rails.cache.fetch("timeline/objectivec_es", :expires_in => 5.minutes) do
-      Twitter.user_timeline("objectivec_es", :count => 200, :exclude_replies => true, :since_id => maximum(:tweet_id)).each do |tweet|
-        insert_tweet(tweet)
+  def self.pull_tweets(prey)
+    Rails.cache.fetch("timeline/#{prey.user}", :expires_in => 5.minutes) do
+      Twitter.user_timeline(prey.user, :count => 200, :exclude_replies => true, :since_id => maximum(:tweet_id)).each do |tweet|
+        insert_tweet(tweet, prey)
       end
     end
   end
 
-  def self.insert_tweet(tweet)
+  def self.insert_tweet(tweet, prey)
     if tweet.retweet?
       tweet = tweet.retweeted_status
     end
@@ -30,6 +25,7 @@ class Tweetlink < ActiveRecord::Base
            screen_name: tweet.user.screen_name,
            profile_image: tweet.user.profile_image_url,
            tweet_created_at: tweet.created_at,
+           prey: prey,
         )
       end
     end

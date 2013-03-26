@@ -24,13 +24,18 @@
         </a>
 
         <!-- Be sure to leave the brand out there if you want it shown -->
-        <a class="brand" href="#">URLHunter</a>
+        <a class="brand" href="<%= root_path %>">URLHunter</a>
 
         <!-- Everything you want hidden at 940px or less, place within here -->
         <div class="nav-collapse collapse">
           <ul class="nav">
-            <li class="active">
-              <a href="#">Home</a>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Preys<b class="caret"></b></a>
+              <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
+                <% Prey.all.each do |prey| %>
+                    <li><a tabindex="-1" href="<%= index_path(:prey => prey.user) %>"><%= prey.user %></a></li>
+                <% end %>
+              </ul>
             </li>
             <li><a href="https://github.com/jmoreno/URLHunter">GitHub</a></li>
             <li><a href="http://javi.zinkinapps.com/blog/2013/03/11/como-se-hizo-urlhunter/">How-to</a></li>
@@ -45,7 +50,8 @@
     <div class="span3">
       <div class="well">
         <h2>¿Qué es URLHunter?</h2>
-        <p>URLHunter es una aplicación hecha en Ruby on Rails que almacena todos los tweets de @ObjectiveC_es que contienen un link. Puedes ver el código fuente en GitHub, forkearlo y hacer pull request con tus mejoras.</p>
+        <p>URLHunter es una aplicación hecha en Ruby on Rails que almacena todos los tweets de determinadas cuentas que publican links. Puedes ver el código fuente en GitHub, forkearlo y hacer pull request con tus mejoras.</p>
+        <p>Con este proyecto estamos aprendiendo Ruby on Rails así que si eres un Rubyst, no seas muy duro con nosotros y echanos un cable. ;-)</p>
        </div>
     </div>
     <div class="span9">

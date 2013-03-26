@@ -1,4 +1,10 @@
-<h1>Todos los links de @objectivec_es</h1>
+<h1>Todos los links
+  <% if @prey %>
+      de @<%= @prey.user %>
+  <% else %>
+    cazados.
+  <% end %>
+</h1>
 <%= will_paginate @tweetlinks %>
     <% @tweetlinks.each do |tweetlink| %>
         <%= tweetlink.oembed.html_safe %>

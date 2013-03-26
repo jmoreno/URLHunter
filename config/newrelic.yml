@@ -44,7 +44,7 @@ common: &default_settings
   # Application Name
   # Set this to be the name of your application as you'd like it show
   # up in New Relic.  New Relic will then auto-map instances of your application
-  # into a New Relic "application" on your home dashboard page. If you want
+  # into a New Relic "application" on your index dashboard page. If you want
   # to map this instance into multiple apps, like "AJAX Requests" and
   # "All UI" then specify a semicolon-separated list of up to three
   # distinct names.  If you comment this out, it defaults to the 

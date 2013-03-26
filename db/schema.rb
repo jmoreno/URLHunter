@@ -11,7 +11,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130315222810) do
+ActiveRecord::Schema.define(:version => 20130326101126) do
+
+  create_table "preys", :force => true do |t|
+    t.string   "user"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "tweetlinks", :force => true do |t|
     t.string   "screen_name"
@@ -22,6 +28,7 @@ ActiveRecord::Schema.define(:version => 20130315222810) do
     t.string   "tweet_created_at"
     t.integer  "tweet_id"
     t.text     "oembed"
+    t.integer  "prey_id"
   end
 
 end
